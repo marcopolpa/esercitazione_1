@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int q(int a) {     
+	return a*a;
+}
+
+int e(int a,int b) {  
+	if(b==0) return 1;
+	return a*e(a, b-1);
+}
+
+int e10(int a) {     
+	return e(10, a);
+}
+
+int iq(int a) {     
+	int i;
+	for (i=0;q(i)<=a;i++)
+	    ;
+	return i-1;
+}
+
+int ie10(int a) {         
+	int i;
+	for (i=0;e10(i)<=a;i++)  
+	    ;
+	return i-1;
+}
+
+main() {
+	printf("\n%i", iq(25));  
+	printf("\n%i", iq(41));  
+	printf("\n%i", iq(6));   
+	printf("\n%i", iq(90000)); 
+	printf("\n%i", ie10(2));   
+	printf("\n%i", ie10(1223));
+	printf("\n%i", ie10(3321));
+	printf("\n%i", ie10(3213213));
+}
